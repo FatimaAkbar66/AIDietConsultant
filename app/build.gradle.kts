@@ -40,4 +40,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Google AI (Gemini) SDK - The brain of your app
+    implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+
+    // Material Design (For rounded buttons and cards)
+    implementation("com.google.android.material:material:1.11.0")
+
+    // Circular Image View (For profile pics)
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    // Glide (To load food images from URLs later)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
 }
