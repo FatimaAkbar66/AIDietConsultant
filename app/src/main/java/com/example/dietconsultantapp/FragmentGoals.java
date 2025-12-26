@@ -32,11 +32,14 @@ public class FragmentGoals extends Fragment {
         setupSpinner(spinnerTimeline, R.array.timeline_array);
 
         btnFinish.setOnClickListener(view -> {
-            // Button dabate hi pehle ViewModel mein data save karein
-            saveData();
+            saveData(); // ViewModel mein save karein
 
-            // Phir AI screen par chalein
             Intent intent = new Intent(getActivity(), AIResultActivity.class);
+            // Data bhejien
+            intent.putExtra("NAME", viewModel.name);
+            intent.putExtra("GOAL", viewModel.goal);
+            intent.putExtra("AGE", viewModel.age);
+            intent.putExtra("WEIGHT", viewModel.weight);
             startActivity(intent);
         });
 
