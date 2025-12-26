@@ -43,7 +43,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
 
-    implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
