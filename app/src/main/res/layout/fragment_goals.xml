@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soft_lavender"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Your Goal"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/deep_violet"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Primary Goal"
+              android:layout_marginTop="20dp"
+              android:textColor="@color/deep_violet"/>
+
+    <Spinner android:id="@+id/spinnerGoal"
+             android:layout_width="match_parent"
+             android:layout_height="55dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/edittext_bg"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Target Timeline"
+              android:layout_marginTop="15dp"
+              android:textColor="@color/deep_violet"/>
+
+    <Spinner android:id="@+id/spinnerTimeline"
+             android:layout_width="match_parent"
+             android:layout_height="55dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/edittext_bg"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFinish"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:text="GENERATE DIET PLAN ✨"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/deep_violet"/>
+
+</LinearLayout>
