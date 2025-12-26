@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">DietConsultantApp</string>
+    <string name="app_name">Diet Consultant AI</string>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="activity_array">
+        <item>Lazy (No Exercise)</item>
+        <item>Moderate (2-3 days)</item>
+        <item>Active (Daily)</item>
+    </string-array>
+
+    <string-array name="sleep_array">
+        <item>Less than 5 hrs</item>
+        <item>6-7 hrs</item>
+        <item>8+ hrs</item>
+    </string-array>
+
+    <string-array name="stress_array">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="goal_array">
+        <item>Lose Weight</item>
+        <item>Gain Weight</item>
+        <item>Maintain Weight</item>
+    </string-array>
+
+    <string-array name="timeline_array">
+        <item>2 Weeks</item>
+        <item>4 Weeks</item>
+        <item>8 Weeks</item>
+        <item>12 Weeks</item>
+    </string-array>
 </resources>

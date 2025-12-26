@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soft_lavender"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Lifestyle"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#DA55198C"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Activity Level"
+              android:layout_marginTop="20dp"
+              android:textColor="#DA55198C"/>
+
+    <Spinner android:id="@+id/spinnerActivity"
+             android:layout_width="match_parent"
+             android:layout_height="55dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/edittext_bg"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Sleep Hours"
+              android:layout_marginTop="15dp"
+              android:textColor="@color/deep_violet"/>
+
+    <Spinner android:id="@+id/spinnerSleep"
+             android:layout_width="match_parent"
+             android:layout_height="55dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/edittext_bg"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Stress Level"
+              android:layout_marginTop="15dp"
+              android:textColor="@color/deep_violet"/>
+
+    <Spinner android:id="@+id/spinnerStress"
+             android:layout_width="match_parent"
+             android:layout_height="55dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/edittext_bg"/>
+
+</LinearLayout>

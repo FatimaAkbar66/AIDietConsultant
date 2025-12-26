@@ -1,7 +1,4 @@
 <resources>
-    <color name="cream_background">#FDFBF7</color>
-    <color name="salmon_primary">#FF6B6B</color>
-    <color name="dark_text">#2D2D2D</color>
-    <color name="card_white">#FFFFFF</color>
-    <color name="sage_green">#81C784</color>
+    <color name="deep_violet">#DA7873F0</color> <color name="soft_lavender">#F2F1FF</color> <color name="nude_accent">#F8E9E2</color> <color name="text_black">#2D2D2D</color>
+    <color name="white">#FFFFFF</color>
 </resources>
