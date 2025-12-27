@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your AI Health Report"
-        android:textColor="#E1360B49"
+        android:textColor="#360B49"
         android:textSize="26sp"
         android:textStyle="bold" />
 
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="AI Personalized Diet"
-        android:textColor="#E7360B49"
+        android:textColor="#360B49"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -79,8 +79,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="18dp"
-        app:cardElevation="2dp">
+        app:cardElevation="4dp">
 
         <TextView
             android:id="@+id/tvAIDietPlan"
@@ -90,7 +91,8 @@
             android:text="Analyzing your data... Gemini is crafting your plan."
             android:lineSpacingExtra="6sp"
             android:textColor="#2D2D2D"
-            android:textSize="15sp" />
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
     </androidx.cardview.widget.CardView>
 
     <Button
@@ -98,8 +100,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#EB3D1271"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#3D1271"
         android:text="Back to Dashboard"
+        android:textColor="#FFFFFF"
         app:cornerRadius="15dp" />
 
 </LinearLayout>

@@ -56,7 +56,7 @@ public class AIResultActivity extends AppCompatActivity {
         tvAIDietPlan.setText("AI is preparing your diet plan...");
 
         // Aapki list ke mutabiq sab se stable model name
-        GenerativeModel gm = new GenerativeModel("gemini-flash-latest", "AIzaSyC9d2i7m2jhZlijXeTAz-Hw3GkzqiHGWf0");
+        GenerativeModel gm = new GenerativeModel("gemini-flash-latest", "AIzaSyDlLagklEVPsg6ljlcEFpkKUp2puvhLY9I");
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
 
         String prompt = "Give a 3-meal healthy diet plan for " + name +
@@ -68,10 +68,21 @@ public class AIResultActivity extends AppCompatActivity {
         Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
             @Override
             public void onSuccess(GenerateContentResponse result) {
-                String resultText = result.getText();
+                // 1. AI se text lena
+                String originalText = result.getText();
+
+                // 2. Cleaning: Saare faltu symbols (*, #, _) ko khatam karna
+                // Taake diet plan bilkul saaf list ki tarah dikhe
+                String cleanText = originalText
+                        .replace("**", "")  // Bold symbols hatana
+                        .replace("*", "•")   // Dots ki jagah bullet point lagana
+                        .replace("#", "")    // Heading symbols hatana
+                        .trim();             // Faltu spaces khatam karna
+
+                // 3. UI update karna
                 runOnUiThread(() -> {
-                    tvAIDietPlan.setText(resultText);
-                    calorieProgress.setProgress(100);
+                    tvAIDietPlan.setText(cleanText);
+                    calorieProgress.setProgress(100); // Progress bar full kar dena
                 });
             }
 

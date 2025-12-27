@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "633521769744",
+    "project_id": "dietconsultantapp-e3de8",
+    "storage_bucket": "dietconsultantapp-e3de8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633521769744:android:2268f4f67236cc3d172995",
+        "android_client_info": {
+          "package_name": "com.example.dietconsultantapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCegL-vRjQTSkptqTFvEgZFzx4adZTcn1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
