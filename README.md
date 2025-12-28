@@ -32,7 +32,7 @@
 | Component | Technology |
 | :--- | :--- |
 | **Language** | Java (Android SDK) |
-| **AI Backend** | Google Gemini Flash 1.5 |
+| **AI Backend** | Google Gemini Flash latest |
 | **Authentication** | Firebase Auth |
 | **UI Components** | XML, Material Design 3, CardView, Lottie (Optional) |
 | **Security** | Gradle Build Config & Secret Tooling |
