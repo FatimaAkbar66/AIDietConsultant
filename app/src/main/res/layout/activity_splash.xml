@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="4dp"
             android:text="Your AI Journey To\nPersonalized Health"
-            android:textColor="@color/deep_violet"
+            android:textColor="#E73E1178"
             android:textSize="32sp"
             android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:lineSpacingExtra="2dp"
-            android:text="Discover a diet that fits your lifestyle, not the other way around. Fast, smart, and designed for you. ✨"
+            android:text="Discover a diet that fits your lifestyle, not the other way around. Fast, smart, and designed for you. "
             android:textColor="#555555"
             android:textSize="16sp" />
 
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/deep_violet"
+            android:backgroundTint="#E93E1178"
             android:elevation="8dp"
             android:text="GET STARTED"
             android:textColor="@color/white"

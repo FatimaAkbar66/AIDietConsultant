@@ -1,53 +1,96 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/soft_lavender"
-    android:orientation="vertical"
-    android:padding="30dp"
-    android:gravity="center_vertical">
+    android:background="#F8F9FE"> <View
+    android:layout_width="220dp"
+    android:layout_height="220dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="-100dp"
+    android:layout_marginTop="-60dp"
+    android:background="@drawable/circle_shape" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <View
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-120dp"
+        android:layout_marginBottom="-100dp"
+        android:background="@drawable/circle_shape" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your Lifestyle"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#DA55198C"/>
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="#FFFFFF">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Activity Level"
-              android:layout_marginTop="20dp"
-              android:textColor="#DA55198C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-    <Spinner android:id="@+id/spinnerActivity"
-             android:layout_width="match_parent"
-             android:layout_height="55dp"
-             android:layout_marginTop="5dp"
-             android:background="@drawable/edittext_bg"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Lifestyle"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#3D1271"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"/>
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Sleep Hours"
-              android:layout_marginTop="15dp"
-              android:textColor="@color/deep_violet"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activity Level"
+                android:textColor="#3D1271"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
 
-    <Spinner android:id="@+id/spinnerSleep"
-             android:layout_width="match_parent"
-             android:layout_height="55dp"
-             android:layout_marginTop="5dp"
-             android:background="@drawable/edittext_bg"/>
+            <Spinner
+                android:id="@+id/spinnerActivity"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/edittext_bg"
+                android:layout_marginBottom="15dp"/>
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Stress Level"
-              android:layout_marginTop="15dp"
-              android:textColor="@color/deep_violet"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sleep Hours"
+                android:textColor="#3D1271"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
 
-    <Spinner android:id="@+id/spinnerStress"
-             android:layout_width="match_parent"
-             android:layout_height="55dp"
-             android:layout_marginTop="5dp"
-             android:background="@drawable/edittext_bg"/>
+            <Spinner
+                android:id="@+id/spinnerSleep"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/edittext_bg"
+                android:layout_marginBottom="15dp"/>
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stress Level"
+                android:textColor="#3D1271"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerStress"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/edittext_bg"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

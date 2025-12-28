@@ -1,110 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3E5F5"> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:background="#F8F9FE">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your AI Health Report"
-        android:textColor="#360B49"
-        android:textSize="26sp"
-        android:textStyle="bold" />
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:id="@+id/headerArea"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="25dp"
-        app:cardElevation="8dp">
+        android:layout_height="140dp"
+        android:background="#3D1271"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center_vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#5E259F">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/app_logo" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            android:letterSpacing="0.05"
+            android:text="VioFit"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivLogout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_lock_power_off"
+            app:tint="#D9A7F0"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:clipToPadding="false"
+        android:paddingBottom="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/violet_gradient_bg"
-            android:orientation="horizontal"
-            android:padding="25dp">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
 
-            <ProgressBar
-                android:id="@+id/calorieProgress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:progress="65"
-                android:progressDrawable="@drawable/circle_progress" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
 
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/violet_gradient_bg"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <ProgressBar
+                        android:id="@+id/calorieProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:progress="65"
+                        android:progressDrawable="@drawable/circle_progress" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvUserGoalDisplay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Weight Loss Plan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvUserInfoSummary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Optimized for your profile"
+                            android:textColor="#D9A7F0"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:orientation="vertical">
+                android:layout_marginTop="25dp"
+                android:text="AI Personalized Diet"
+                android:textColor="#3D1271"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:drawableStart="@android:drawable/ic_menu_edit"
+                android:drawablePadding="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp">
 
                 <TextView
-                    android:id="@+id/tvUserGoalDisplay"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvAIDietPlan"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Weight Loss Plan"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:padding="20dp"
+                    android:text="Analyzing your health data... Please wait."
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="#444444"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif" />
+            </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/tvUserInfoSummary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Based on your profile"
-                    android:textColor="#D9A7F0"
-                    android:textSize="14sp" />
-            </LinearLayout>
+            <Button
+                android:id="@+id/btnBackHome"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#3D1271"
+                android:text="DONE"
+                android:letterSpacing="0.1"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="18dp" />
+
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="AI Personalized Diet"
-        android:textColor="#360B49"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="18dp"
-        app:cardElevation="4dp">
-
-        <TextView
-            android:id="@+id/tvAIDietPlan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Analyzing your data... Gemini is crafting your plan."
-            android:lineSpacingExtra="6sp"
-            android:textColor="#2D2D2D"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-medium" />
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btnBackHome"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#3D1271"
-        android:text="Back to Dashboard"
-        android:textColor="#FFFFFF"
-        app:cornerRadius="15dp" />
-
-</LinearLayout>
-</ScrollView>
+    </ScrollView>
+</RelativeLayout>

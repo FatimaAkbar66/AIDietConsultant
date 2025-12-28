@@ -1,22 +1,22 @@
 plugins {
     alias(libs.plugins.android.application)
-    // YE LINE ADD KAREIN:
     id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.dietconsultantapp"
-    compileSdk = 35 // Tip: 35 stable hai, 36 abhi experimental ho sakta hai
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.dietconsultantapp"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
-    // ... baaki configuration wahi rehne dein ...
+
 }
 
 dependencies {
@@ -35,5 +35,6 @@ dependencies {
     implementation("androidx.concurrent:concurrent-futures:1.1.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation(libs.activity)
-    // ... baaki jo pehle thi ...
+
+    implementation("com.google.android.material:material:1.11.0")
 }

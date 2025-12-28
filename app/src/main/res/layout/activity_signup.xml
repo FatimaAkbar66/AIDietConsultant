@@ -1,66 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="30dp"
+    android:background="#3D1271"> <LinearLayout
+    android:id="@+id/topSectionSignup"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
     android:gravity="center"
-    android:background="#F3E5F5"> <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Create Account"
-    android:textSize="28sp"
-    android:textStyle="bold"
-    android:textColor="#3D1271"
-    android:layout_marginBottom="10dp"/>
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Join us to get your AI Diet Plan"
-        android:textSize="16sp"
-        android:textColor="#757575"
-        android:layout_marginBottom="30dp"/>
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:hint="Email Address"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:elevation="2dp"
-        android:background="@android:color/white"
-        android:layout_marginBottom="15dp"/>
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:hint="Password (min 6 characters)"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:elevation="2dp"
-        android:background="@android:color/white"
-        android:layout_marginBottom="25dp"/>
-
-    <Button
-        android:id="@+id/btnSignup"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Sign Up"
-        android:textSize="18sp"
-        android:backgroundTint="#3D1271"
-        android:textColor="#FFFFFF" />
+        android:text="Create Account"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvBackToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Login"
-        android:textColor="#3D1271"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"/>
-
+        android:text="Join our health community"
+        android:textColor="#D9A7F0"
+        android:textSize="16sp" />
 </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topSectionSignup"
+        android:layout_marginTop="-30dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F8F9FE"
+                android:orientation="vertical"
+                android:padding="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Email Address"
+                    android:textColor="#3D1271"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="example@mail.com"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Password"
+                    android:textColor="#3D1271"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="••••••••"
+                    android:inputType="textPassword"
+                    android:padding="15dp" />
+
+                <Button
+                    android:id="@+id/btnSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="35dp"
+                    android:backgroundTint="#3D1271"
+                    android:text="REGISTER"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:cornerRadius="15dp" />
+
+                <TextView
+                    android:id="@+id/tvGoToLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Already have an account? Login"
+                    android:textColor="#3D1271" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

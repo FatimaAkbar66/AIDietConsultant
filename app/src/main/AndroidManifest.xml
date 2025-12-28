@@ -13,9 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DietConsultantApp">
-        <activity
-            android:name=".HomeActvity"
-            android:exported="false" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
