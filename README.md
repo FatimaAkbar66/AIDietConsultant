@@ -1,33 +1,48 @@
-# AIDietConsultant
-# 🥗 VioFit - AI-Powered Diet Consultant
+# VioFit: AI-Powered Hyper-Personalized Diet Consultant 🥗✨
 
-VioFit ek modern Android application hai jo Google ke **Gemini AI** ka use karke users ko unke body goals ke mutabiq personalized 3-meal diet plans generate karke deti hai. Iska UI elegant violet theme par mabni hai jo ek premium fitness experience deta hai.
+**VioFit** is a cutting-edge Android application designed to bridge the gap between advanced artificial intelligence and personal health management. Leveraging Google’s **Gemini AI Engine**, VioFit generates real-time, data-driven nutritional plans tailored to a user's unique biological profile and fitness objectives.
 
-## ✨ Features
+---
 
-- **AI Diet Generation:** Gemini Flash API ka use karte hue customized plans.
-- **Modern UI/UX:** Purple gradient theme aur CardView based clean design.
-- **User Profiling:** Name, Age, Weight, aur Goals (Weight Loss/Gain) ke mutabiq results.
-- **Secure Authentication:** Firebase Auth se login aur signup integration.
-- **Smart Launcher:** Android 12+ adaptive icon support aur smooth splash screen.
-- **Safe API Handling:** API keys ko `local.properties` mein secure rakha gaya hai.
+## 🌟 Key Features & Functionalities
 
-## 🚀 Screenshots
+### 🧠 1. Intelligent Diet Synthesis (Gemini AI)
+- **Real-Time Analysis:** Dynamically generates a 3-meal plan (Breakfast, Lunch, Dinner) based on user-specific inputs like Age, Weight, Name, and Goals.
+- **Natural Language Processing:** Processes complex nutritional data into clean, readable, and actionable advice.
+- **Smart Formatting:** Custom logic to strip markdown symbols for a clean, professional mobile UI display.
 
-| Dashboard | AI Result (Diet Plan) |
-|-----------|-----------------------|
-| ![Splash](https://via.placeholder.com/200x400?text=VioFit+Splash) | ![Result](https://via.placeholder.com/200x400?text=VioFit+AI+Result) |
+### 🎨 2. Premium Aesthetic UI/UX
+- **Violet Gradient Theme:** A modern, cohesive design language using deep purples and soft lavenders to represent wellness and luxury.
+- **Card-Based Architecture:** High-elevation Material Design cards for better content scannability and visual hierarchy.
+- **Adaptive Splash Screen:** A seamless startup experience with a zoom-out logo animation that matches the Android 12+ system standard.
 
-## 🛠️ Tech Stack
+### 🔒 3. User Authentication & Security
+- **Firebase Integration:** Robust Sign-Up and Login system to secure user data.
+- **Session Management:** One-tap Logout functionality with a custom-designed header interface.
+- **Secure API Infrastructure:** Gemini API keys are shielded using `local.properties` and `BuildConfig` to prevent exposure in public repositories.
 
-- **Language:** Java
-- **UI:** XML (Material Design)
-- **AI Engine:** Google Gemini AI (Generative AI SDK)
-- **Backend:** Firebase (Authentication)
-- **Database/Storage:** SharedPreferences & Intent Bundles
+### 📊 4. User Profiling & Progress Tracking
+- **Dynamic Goal Setting:** Supports Weight Loss, Muscle Gain, and Maintenance tracks.
+- **Visual Progress Indicators:** Integrated custom progress bars to visualize daily calorie and water intake goals.
 
-## 📦 Installation & Setup
+---
 
-1. **Clone the project:**
+## 🛠️ Technical Architecture
+
+| Component | Technology |
+| :--- | :--- |
+| **Language** | Java (Android SDK) |
+| **AI Backend** | Google Gemini Flash 1.5 |
+| **Authentication** | Firebase Auth |
+| **UI Components** | XML, Material Design 3, CardView, Lottie (Optional) |
+| **Security** | Gradle Build Config & Secret Tooling |
+
+---
+
+## 🚀 Installation & Configuration
+
+To run VioFit locally, follow these steps:
+
+1. **Clone the Repository**
    ```bash
    git clone [https://github.com/YourUsername/VioFit.git](https://github.com/YourUsername/VioFit.git)
