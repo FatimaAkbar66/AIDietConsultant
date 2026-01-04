@@ -1,11 +1,10 @@
 package com.example.dietconsultantapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View; // Added
 import android.widget.Button;
-import android.widget.ImageView; // Added
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -18,82 +17,79 @@ import com.google.ai.client.generativeai.type.GenerateContentResponse;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class AIResultActivity extends AppCompatActivity {
 
     private TextView tvAIDietPlan, tvUserGoalDisplay, tvUserInfoSummary;
     private ProgressBar calorieProgress;
     private Button btnBackHome;
-    private ImageView ivLogout; // New Logout Icon
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ai_result);
 
-        // Initialize UI Elements
         tvAIDietPlan = findViewById(R.id.tvAIDietPlan);
         tvUserGoalDisplay = findViewById(R.id.tvUserGoalDisplay);
         tvUserInfoSummary = findViewById(R.id.tvUserInfoSummary);
         calorieProgress = findViewById(R.id.calorieProgress);
         btnBackHome = findViewById(R.id.btnBackHome);
-        ivLogout = findViewById(R.id.ivLogout); // Connecting the XML Logout icon
 
-        // Get Data from Intent
         String name = getIntent().getStringExtra("NAME");
         String goal = getIntent().getStringExtra("GOAL");
-        String age = getIntent().getStringExtra("AGE");
         String weight = getIntent().getStringExtra("WEIGHT");
+        String age = getIntent().getStringExtra("AGE");
+        String timeline = getIntent().getStringExtra("TIMELINE");
 
-        // Display User Info
         tvUserGoalDisplay.setText(goal);
-        tvUserInfoSummary.setText(name + " • " + age + " yrs • " + weight + "kg");
+        tvUserInfoSummary.setText(name + " • " + weight + "kg • " + age + " yrs");
 
-        // Start AI Process
-        startGeminiAI(name, goal, age, weight);
+        startGeminiAI(name, goal, age, weight,
+                getIntent().getStringExtra("HEIGHT"),
+                getIntent().getStringExtra("GENDER"),
+                getIntent().getStringExtra("ACTIVITY_LEVEL"),
+                getIntent().getStringExtra("STRESS_LEVEL"),
+                getIntent().getStringExtra("SLEEP_HOURS"),
+                timeline);
 
-        // Logout Logic for the NEW Icon in XML
-        ivLogout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(AIResultActivity.this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+        btnBackHome.setOnClickListener(v -> {
+            // Save data for Dashboard before leaving
+            SharedPreferences prefs = getSharedPreferences("VioFitPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("saved_diet_plan", tvAIDietPlan.getText().toString());
+            editor.putString("USER_NAME", name);
+            editor.putString("USER_GOAL", goal);
+            editor.putString("USER_TIMELINE", timeline);
+            editor.putLong("plan_start_date", System.currentTimeMillis());
+            editor.apply();
+
+            startActivity(new Intent(AIResultActivity.this, DashboardActivity.class));
             finish();
         });
-
-        btnBackHome.setOnClickListener(v -> finish());
     }
 
-    // Note: onCreateOptionsMenu and onOptionsItemSelected are removed
-    // because we are now using the custom ImageView for Logout.
+    private void startGeminiAI(String name, String goal, String age, String weight, String height,
+                               String gender, String activity, String stress, String sleep, String timeline) {
 
-    private void startGeminiAI(String name, String goal, String age, String weight) {
-        tvAIDietPlan.setText("AI is preparing your diet plan...");
+        tvAIDietPlan.setText("VioFit AI is crafting your holistic wellness plan...");
 
-        // Initialize Gemini Model
-        GenerativeModel gm = new GenerativeModel("gemini-flash-latest", "your gemnini API");
+        GenerativeModel gm = new GenerativeModel("gemini-flash-latest", "gemini api key");
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
 
-        // Prepare Prompt
-        String prompt = "Give a 3-meal healthy diet plan for " + name +
-                " (Goal: " + goal + ", Age: " + age + ", Weight: " + weight + "kg).";
+        String hyperPrompt = "Act as a professional health coach. Create a structured wellness plan for " + name + ".\n\n" +
+                "User Profile: " + gender + ", " + age + "y/o, " + weight + "kg, " + height + "cm. " +
+                "Goal: " + goal + " in " + timeline + ". Lifestyle: " + activity + " activity, " + stress + " stress, " + sleep + "h sleep.\n\n" +
+                "Please provide the response in these EXACT sections for readability:\n" +
+                "1. RECOMMENDED DURATION\n2. DAILY 3-MEAL PLAN\n3. HYDRATION GOAL\n4. TARGETED EXERCISES\n5. LIFESTYLE TIP\n\n" +
+                "IMPORTANT: Do NOT use markdown symbols like * or #.";
 
-        Content content = new Content.Builder().addText(prompt).build();
+        Content content = new Content.Builder().addText(hyperPrompt).build();
         ListenableFuture<GenerateContentResponse> response = model.generateContent(content);
 
         Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
             @Override
             public void onSuccess(GenerateContentResponse result) {
-                String originalText = result.getText();
-
-                // Cleaning symbols
-                String cleanText = originalText
-                        .replace("**", "")
-                        .replace("*", "•")
-                        .replace("#", "")
-                        .trim();
-
+                String cleanText = result.getText().replace("**", "").replace("###", "").replace("*", "•").trim();
                 runOnUiThread(() -> {
                     tvAIDietPlan.setText(cleanText);
                     calorieProgress.setProgress(100);
@@ -102,10 +98,7 @@ public class AIResultActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Throwable t) {
-                Log.e("AI_ERROR", t.getMessage());
-                runOnUiThread(() -> {
-                    tvAIDietPlan.setText("AI Error: " + t.getMessage());
-                });
+                runOnUiThread(() -> tvAIDietPlan.setText("Error: Check Internet."));
             }
         }, this.getMainExecutor());
     }

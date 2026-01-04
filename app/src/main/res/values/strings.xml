@@ -23,6 +23,8 @@
         <item>Low</item>
         <item>Medium</item>
         <item>High</item>
+        <item>Occasionally</item>
+
     </string-array>
 
     <string-array name="goal_array">
